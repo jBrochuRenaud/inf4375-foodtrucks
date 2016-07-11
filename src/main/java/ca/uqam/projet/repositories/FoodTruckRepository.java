@@ -101,7 +101,8 @@ public class FoodTruckRepository {
 
 class FoodTruckRowMapper implements RowMapper<FoodTruck> {
   public FoodTruck mapRow(ResultSet rs, int rowNum) throws SQLException {
-    return new FoodTruck(rs.getDate("date")
+    return new FoodTruck(rs.getInt("id")
+      , rs.getDate("date")
       , rs.getString("startHour")
       , rs.getString("endHour")
       , rs.getString("location")

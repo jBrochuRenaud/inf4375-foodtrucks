@@ -1,15 +1,11 @@
 package ca.uqam.projet.resources;
 
 import com.fasterxml.jackson.annotation.*;
-import javax.persistence.*;
 import java.sql.Date;
 
 public class FoodTruck {
 
-  @Id
-  @GeneratedValue(strategy=GenerationType.SEQUENCE)
-  private String id;
-
+  private int id;
   private Date date;
   private String startHour;
   private String endHour;
@@ -30,7 +26,19 @@ public class FoodTruck {
     this.truckId = truckId;
   }
 
-  @JsonProperty public String getId() { return id; }
+  public FoodTruck(int id, Date date, String startHour, String endHour, String location, double latitude, double longitude, String truckName, String truckId) {
+    this.id = id;
+    this.date = date;
+    this.startHour = startHour;
+    this.endHour = endHour;
+    this.location = location;
+    this.latitude = latitude;
+    this.longitude = longitude;
+    this.truckName = truckName;
+    this.truckId = truckId;
+  }
+
+  @JsonProperty public int getId() { return id; }
   @JsonProperty public Date getDate() { return date; }
   @JsonProperty public String getStartHour() { return startHour; }
   @JsonProperty public String getEndHour() { return endHour; }
