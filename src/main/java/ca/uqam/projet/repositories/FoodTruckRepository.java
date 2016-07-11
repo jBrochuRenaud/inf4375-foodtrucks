@@ -49,7 +49,7 @@ public class FoodTruckRepository {
     + " from"
     + "   foodtrucks"
     + " where"
-    + "   date >= ? and date < ?"
+    + "   date >= ? and date <= ?"
     ;
 
   public List<FoodTruck> findAllByDateInterval(java.sql.Date startDate, java.sql.Date endDate) {
