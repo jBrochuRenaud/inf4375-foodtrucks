@@ -24,12 +24,12 @@ public class FoodTruckController {
     return repository.findById(id);
   }
 
-  @RequestMapping("/foodtrucks-schedule/from={startDate}&to={endDate}")
-  public List<FoodTruck> findByDateInterval(@PathVariable("startDate") String startString, @PathVariable("endDate") String endString) {
+  @RequestMapping("/foodtrucks-schedule")
+  public List<FoodTruck> findByDateInterval(@RequestParam String from, @RequestParam String to) {
   	java.sql.Date startDate, endDate;
   	try {
-  		startDate = java.sql.Date.valueOf(startString);
-  		endDate = java.sql.Date.valueOf(endString);
+  		startDate = java.sql.Date.valueOf(from);
+  		endDate = java.sql.Date.valueOf(to);
 	} catch (IllegalArgumentException name) {
 		return Collections.emptyList();
 	}
