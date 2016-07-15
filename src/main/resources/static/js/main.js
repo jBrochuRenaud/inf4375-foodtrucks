@@ -3,8 +3,8 @@ var map = L.map('mapid', {}).locate({setView: true});
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
-    id: 'shenacity.0lmkco6n',
-    accessToken: 'pk.eyJ1Ijoic2hlbmFjaXR5IiwiYSI6ImNpcW4ya25nMDAwd2ZnbmpmcDl0bWc2engifQ.F34m_4vs0I6zM6gwaCqzVg'
+    id: 'your.mapbox.project.id',
+    accessToken: 'your.mapbox.public.access.token'
 }).addTo(map);
 var markerGroup = L.layerGroup();
 
