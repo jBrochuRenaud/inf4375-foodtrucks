@@ -10,3 +10,13 @@ create table foodtrucks (
   , truckId text
   , constraint u_constraint unique (date, startDate, endDate, location, truckId)
 );
+create table bixistations (
+    id int primary key
+  , stationName text
+  , terminalName int
+  , latitude float
+  , longitude float
+  , availableBikes int
+  , emptyDocks int
+  , lastUpdateTime TIMESTAMP
+);

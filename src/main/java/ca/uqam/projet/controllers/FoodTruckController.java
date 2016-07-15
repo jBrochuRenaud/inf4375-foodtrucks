@@ -33,7 +33,6 @@ public class FoodTruckController {
 	} catch (IllegalArgumentException name) {
 		return Collections.emptyList();
 	}
-
     return repository.findAllByDateInterval(startDate, endDate);
   }
 
