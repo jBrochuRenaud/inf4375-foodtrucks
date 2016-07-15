@@ -1,0 +1,9 @@
+html, body, #mapcontainer {
+	height: 100%;
+	overflow: hidden;
+}
+
+#mapid { 
+	height: 1500px;
+	max-height: 100%;
+}

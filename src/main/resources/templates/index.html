@@ -4,13 +4,32 @@
   <meta charset="UTF-8"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css" />
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link type="text/css" rel="stylesheet" href="css/main.css"></link>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
 </head>
+
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div">
-        </div>
+  <div >
+    <div id="mapcontainer" class="row">
+      <div id="mapid" class="col-md-10">
+      </div>
+      <div id="dateForm" class="col-md-2">
+        <form id="search-form" class="navbar-form navbar-right">
+          <span>Search for foodtruck schedules!</span>
+          <div class="input-daterange input-group" id="datepicker">
+            <input type="text" class="input-sm form-control" id="startDate" />
+            <span class="input-group-addon">to</span>
+            <input type="text" class="input-sm form-control" id="endDate" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Go</button>
+          <div id="queryStatus"></div>
+        </form>
       </div>
     </div>
   </div>
