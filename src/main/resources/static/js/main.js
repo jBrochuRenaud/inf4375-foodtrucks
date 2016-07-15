@@ -1,5 +1,4 @@
 var baseURL = new URL(window.location.origin);
-var locale = window.navigator.userLanguage || window.navigator.language;
 var map = L.map('mapid', {}).locate({setView: true});
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -56,9 +55,8 @@ var displayMapMarkers = function (data) {
     	var marker = L.marker([schedule.latitude, schedule.longitude]).addTo(map)
 	    .bindPopup('<span>Name: '+schedule.truckName+'</span><br/>'
 	    	+ '<span>Location: '+schedule.location+'</span><br/>'
-	    	+ '<span>Date: '+moment(schedule.date).format("dddd, MMMM Do YYYY")+'</span><br/>'
-	    	+ '<span>Start hour: '+schedule.startHour+'</span><br/>'
-	    	+ '<span>End hour: '+schedule.endHour+'</span><br/>');
+	    	+ '<span>Start: '+moment(schedule.startDate).format("dddd, MMMM Do YYYY, HH:mm")+'</span><br/>'
+	    	+ '<span>Start: '+moment(schedule.endDate).format("dddd, MMMM Do YYYY, HH:mm")+'</span>');
 	    markerGroup.addLayer(marker);
 	});
 	this.map.addLayer(markerGroup);

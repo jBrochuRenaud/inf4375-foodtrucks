@@ -2,7 +2,7 @@ package ca.uqam.projet.tasks;
 
 import ca.uqam.projet.resources.*;
 
-import java.sql.Date;
+import java.sql.*;
 import java.util.*;
 
 import ca.uqam.projet.resources.*;
@@ -37,9 +37,10 @@ public class FetchFoodTruckTask {
   }
 
   private FoodTruck asFoodTruck(Feature f) {
-    return new FoodTruck(java.sql.Date.valueOf(f.featureProperties.date)
-        , f.featureProperties.startHour
-        , f.featureProperties.endHour
+    java.sql.Date date = java.sql.Date.valueOf(f.featureProperties.date);
+    return new FoodTruck(date
+        , java.sql.Timestamp.valueOf("" + date.toString() + " " + f.featureProperties.startHour + ":00")
+        , java.sql.Timestamp.valueOf("" + date.toString() + " " + f.featureProperties.endHour + ":00")
         , f.featureProperties.location
         , f.geometry.coordinates[1]
         , f.geometry.coordinates[0]

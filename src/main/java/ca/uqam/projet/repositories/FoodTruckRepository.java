@@ -20,8 +20,8 @@ public class FoodTruckRepository {
       " select"
     + "     id"
     + "   , date"
-    + "   , startHour"
-    + "   , endHour"
+    + "   , startDate"
+    + "   , endDate"
     + "   , location"
     + "   , latitude"
     + "   , longitude"
@@ -39,8 +39,8 @@ public class FoodTruckRepository {
       " select"
     + "     id"
     + "   , date"
-    + "   , startHour"
-    + "   , endHour"
+    + "   , startDate"
+    + "   , endDate"
     + "   , location"
     + "   , latitude"
     + "   , longitude"
@@ -60,8 +60,8 @@ public class FoodTruckRepository {
       " select"
     + "     id"
     + "   , date"
-    + "   , startHour"
-    + "   , endHour"
+    + "   , startDate"
+    + "   , endDate"
     + "   , location"
     + "   , latitude"
     + "   , longitude"
@@ -78,7 +78,7 @@ public class FoodTruckRepository {
   }
 
   private static final String INSERT_STMT =
-      " insert into foodtrucks (date, startHour, endHour, location, latitude, longitude, truckName, truckId)"
+      " insert into foodtrucks (date, startDate, endDate, location, latitude, longitude, truckName, truckId)"
     + " values (?, ?, ?, ?, ?, ?, ?, ?)"
     + " on conflict do nothing"
     ;
@@ -87,8 +87,8 @@ public class FoodTruckRepository {
     return jdbcTemplate.update(conn -> {
       PreparedStatement ps = conn.prepareStatement(INSERT_STMT);
       ps.setDate(1, new java.sql.Date(foodtruck.getDate().getTime()));
-      ps.setString(2, foodtruck.getStartHour());
-      ps.setString(3, foodtruck.getEndHour());
+      ps.setTimestamp(2, foodtruck.getStartDate());
+      ps.setTimestamp(3, foodtruck.getEndDate());
       ps.setString(4, foodtruck.getLocation());
       ps.setDouble(5, foodtruck.getLatitude());
       ps.setDouble(6, foodtruck.getLongitude());
@@ -103,8 +103,8 @@ class FoodTruckRowMapper implements RowMapper<FoodTruck> {
   public FoodTruck mapRow(ResultSet rs, int rowNum) throws SQLException {
     return new FoodTruck(rs.getInt("id")
       , rs.getDate("date")
-      , rs.getString("startHour")
-      , rs.getString("endHour")
+      , rs.getTimestamp("startDate")
+      , rs.getTimestamp("endDate")
       , rs.getString("location")
       , rs.getDouble("latitude")
       , rs.getDouble("longitude")
