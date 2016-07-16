@@ -20,3 +20,12 @@ create table bixistations (
   , emptyDocks int
   , lastUpdateTime TIMESTAMP
 );
+create table bikeracks (
+    id int primary key
+  , inventoryId text
+  , brand text
+  , lastInspection DATE
+  , park text
+  , latitude float
+  , longitude float
+);
