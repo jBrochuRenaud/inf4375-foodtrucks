@@ -14,12 +14,12 @@ public class BixiStationController {
 
   @Autowired BixiStationRepository repository;
 
-  @RequestMapping("/bixistations")
+  @RequestMapping("/bixi-stations")
   public List<BixiStation> findAll() {
     return repository.findAll();
   }
 
-  @RequestMapping("/bixistations/{id}")
+  @RequestMapping("/bixi-stations/{id}")
   public BixiStation findById(@PathVariable("id") int id) {
     return repository.findById(id);
   }
