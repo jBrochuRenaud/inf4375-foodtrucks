@@ -27,7 +27,7 @@ public class FetchFoodTruckTask {
 
   @Autowired private FoodTruckRepository repository;
 
-  @Scheduled(cron="0 0 0,12 * * *")
+  @Scheduled(cron="0 0 0,12 * * ?")
   public void execute() {
     Arrays.asList(new RestTemplate().getForObject(URL, FoodTruckSchedule.class).features).stream()
       .map(this::asFoodTruck)

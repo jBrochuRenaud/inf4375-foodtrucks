@@ -30,10 +30,10 @@ public class FoodTruckController {
   	try {
   		startDate = java.sql.Date.valueOf(from);
   		endDate = java.sql.Date.valueOf(to);
-	} catch (IllegalArgumentException name) {
-		return Collections.emptyList();
-	}
-    return repository.findAllByDateInterval(startDate, endDate);
+	   } catch (IllegalArgumentException name) {
+		  return Collections.emptyList();
+	   }
+      return repository.findAllByDateInterval(startDate, endDate);
   }
 
 }

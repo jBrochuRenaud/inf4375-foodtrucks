@@ -40,9 +40,14 @@ public class FetchBikeRackTask {
       CsvReader csv = new CsvReader(new InputStreamReader(new URL(URL).openStream()));
       csv.readHeaders();
 
-      while (csv.readRecord())
-      {
-        repository.insert(new BikeRack(Integer.parseInt(csv.get("INV_ID")), csv.get("INV_NO"), csv.get("MARQ"), (csv.get("DATE_INSPECTION") != "") ? java.sql.Date.valueOf(csv.get("DATE_INSPECTION")) : null, csv.get("PARC"), Double.parseDouble(csv.get("LAT")), Double.parseDouble(csv.get("LONG"))));
+      while (csv.readRecord()) {
+        repository.insert(
+          new BikeRack(Integer.parseInt(csv.get("INV_ID"))
+            , csv.get("INV_NO"), csv.get("MARQ")
+            , (csv.get("DATE_INSPECTION") != "") ? java.sql.Date.valueOf(csv.get("DATE_INSPECTION")) : null
+            , csv.get("PARC")
+            , Double.parseDouble(csv.get("LAT"))
+            , Double.parseDouble(csv.get("LONG"))));
         log.info(csv.toString());
       }
 
